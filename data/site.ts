@@ -19,8 +19,8 @@ export const site = {
     secondaryAction: "See my work",
     secondaryActionHref: "#work",
     visualWords: ["Good", "work", "starts", "with clarity."],
-    visualIndex: "01 / 05",
-    visualFooter: "KESHIKA",
+    visualIndex: "",
+    visualFooter: "",
   },
   work: {
     title: "Selected work",
@@ -89,9 +89,10 @@ export const site = {
     github: "https://github.com/syntaxelite",
     linkedin: "",
     whatsappMessage: "Hi, I’d like to discuss a website for my business.",
+    replyTime: "Usually replies within a day.",
     linkLabels: {
-      email: "Email",
-      whatsapp: "WhatsApp",
+      email: "Email me",
+      whatsapp: "Message on WhatsApp",
       linkedin: "LinkedIn",
       github: "GitHub",
     },

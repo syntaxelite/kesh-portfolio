@@ -1,9 +1,5 @@
 import { site } from "@/data/site";
 
-function displayProfileUrl(url: string) {
-  return url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
-}
-
 export default function Home() {
   return (
     <>
@@ -120,12 +116,12 @@ export default function Home() {
 
         <section className="contact-section" id="contact">
           <div className="section-wrap contact-inner">
-            <div><p className="eyebrow">{site.navigation[4].label}</p><h2>{site.contact.title}</h2><p>{site.contact.description}</p></div>
-            <div className="contact-links">
-              {site.contact.email && <a href={`mailto:${site.contact.email}`}>{site.contact.linkLabels.email}<span>{site.contact.email}</span></a>}
-              {site.contact.whatsapp && <a href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(site.contact.whatsappMessage)}`} target="_blank" rel="noreferrer">{site.contact.linkLabels.whatsapp}<span>{site.contact.whatsapp}</span></a>}
-              {Boolean(site.contact.linkedin) && <a href={site.contact.linkedin} target="_blank" rel="noreferrer">{site.contact.linkLabels.linkedin}<span>{displayProfileUrl(site.contact.linkedin)}</span></a>}
-              {site.contact.github && <a href={site.contact.github} target="_blank" rel="noreferrer">{site.contact.linkLabels.github}<span>{displayProfileUrl(site.contact.github)}</span></a>}
+            <div className="contact-copy"><p className="eyebrow">{site.navigation[4].label}</p><h2>{site.contact.title}</h2><p>{site.contact.description}</p></div>
+            <div className="contact-actions">
+              {site.contact.email && <a className="contact-action contact-action-primary" href={`mailto:${site.contact.email}`}>{site.contact.linkLabels.email}</a>}
+              {site.contact.whatsapp && <a className="contact-action contact-action-secondary" href={`https://wa.me/${site.contact.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(site.contact.whatsappMessage)}`} target="_blank" rel="noreferrer">{site.contact.linkLabels.whatsapp}</a>}
+              {site.contact.github && <a className="contact-github" href={site.contact.github} target="_blank" rel="noreferrer">{site.contact.linkLabels.github}</a>}
+              {site.contact.replyTime && <p className="contact-reply-time">{site.contact.replyTime}</p>}
             </div>
           </div>
         </section>

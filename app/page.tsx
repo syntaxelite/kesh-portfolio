@@ -84,17 +84,31 @@ export default function Home() {
         </section>
 
         <section className="content-section skills-section" id="skills">
-          <div className="section-wrap">
-            <div className="section-heading">
+          <div className="section-wrap skills-layout">
+            <div className="skills-intro">
               <p className="eyebrow">{site.navigation[3].label}</p>
               <h2>{site.skills.title}</h2>
-              <p>{site.skills.description}</p>
+              <p>{site.skills.intro}</p>
             </div>
-            {site.skills.items.length ? (
-              <div className="skills-list">{site.skills.items.map((item, index) => (
-                <article className="skill-row" key={item.name}><span className="skill-number">0{index + 1}</span><h3>{item.name}</h3><p>{item.description}</p><span className="skill-arrow" aria-hidden="true">↗</span></article>
-              ))}</div>
-            ) : <p className="empty-note">{site.skills.empty}</p>}
+            <div className="skills-detail">
+              <div className="skill-rows">
+                {site.skills.items.map((item) => (
+                  <article className="skill-row" key={item.title}>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="skills-meta">
+                <section className="skill-tools" aria-labelledby="tools-heading">
+                  <h3 id="tools-heading">{site.skills.toolsTitle}</h3>
+                  <ul className="skill-tags">
+                    {site.skills.tools.map((tool) => <li key={tool}>{tool}</li>)}
+                  </ul>
+                </section>
+                <p className="learning-note">{site.skills.learning}</p>
+              </div>
+            </div>
           </div>
         </section>
 

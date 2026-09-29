@@ -48,17 +48,35 @@ export const site = {
     ],
   },
   skills: {
-    title: "A practical approach to web design.",
-    description:
-      "From the first page structure to the final details, the work stays focused on clarity and ease of use.",
+    title: "What I build, and how",
+    intro:
+      "Clear, fast websites for clinics and local businesses, designed around what visitors need to find.",
     items: [
-      { name: "Next.js", description: "App Router pages and site metadata." },
-      { name: "React", description: "Building page interfaces with components." },
-      { name: "TypeScript", description: "Typed page components and site content." },
-      { name: "HTML", description: "Semantic structure for page sections and links." },
-      { name: "CSS", description: "Responsive layouts and visual styling." },
-    ] as { name: string; description?: string }[],
-    empty: "Skills and services will be listed here.",
+      {
+        title: "Mobile-first design",
+        description:
+          "Most patients look up a clinic on their phone first, so every page is designed for small screens before large ones.",
+      },
+      {
+        title: "Clear information architecture",
+        description:
+          "Services, doctors, opening hours and location are organised so visitors find what they need without having to call.",
+      },
+      {
+        title: "Simple to maintain",
+        description:
+          "Content is kept in one place, so timings, services or contact details can be updated without touching the design.",
+      },
+      {
+        title: "Fast, readable pages",
+        description:
+          "Lightweight pages with readable text and clear contrast, built to load quickly on slower connections.",
+      },
+    ],
+    toolsTitle: "Tools",
+    tools: ["Next.js", "React", "TypeScript", "HTML", "CSS"],
+    learning:
+      "Currently learning accessibility and SEO basics.",
   },
   contact: {
     title: "Have a project in mind?",

@@ -14,8 +14,10 @@ export const site = {
     title: "A clear, trustworthy website for your business.",
     description:
       "Thoughtful websites for clinics and businesses in Erode, designed to help people understand what you do and how to reach you.",
-    primaryAction: "See the work",
-    secondaryAction: "About the approach",
+    primaryAction: "Let's talk about your website",
+    primaryActionHref: "#contact",
+    secondaryAction: "See my work",
+    secondaryActionHref: "#work",
     visualWords: ["Good", "work", "starts", "with clarity."],
     visualIndex: "01 / 05",
     visualFooter: "KESHIKA",
@@ -26,18 +28,18 @@ export const site = {
     projects: [
       {
         title: "Dental clinic website concept",
-        category: "Healthcare website concept",
+        label: "Healthcare website concept",
         description:
           "A fictional clinic website concept with services, doctor profiles, opening hours and an appointment button. Created for this portfolio, not for a real clinic or client.",
-        status: "Design concept",
+        image: "",
+        link: "",
       },
     ] as {
       title: string;
-      category: string;
+      label: string;
       description: string;
-      status: string;
-      image?: string;
-      href?: string;
+      image: string;
+      link: string;
     }[],
   },
   about: {

@@ -13,7 +13,7 @@ export default function Home() {
           <span>{site.name}</span>
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
-          {site.navigation.map((item) => (
+          {site.navigation.slice(0, -1).map((item) => (
             <a key={item.href} href={item.href}>{item.label}</a>
           ))}
         </nav>
@@ -27,8 +27,8 @@ export default function Home() {
             <h1>{site.hero.title}</h1>
             <p className="hero-description">{site.hero.description}</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#work">{site.hero.primaryAction}<span aria-hidden="true">↘</span></a>
-              <a className="text-link" href="#about">{site.hero.secondaryAction}<span aria-hidden="true">↗</span></a>
+              <a className="button button-primary" href={site.hero.primaryActionHref}>{site.hero.primaryAction}<span aria-hidden="true">↗</span></a>
+              <a className="text-link" href={site.hero.secondaryActionHref}>{site.hero.secondaryAction}<span aria-hidden="true">↘</span></a>
             </div>
           </div>
           <div className="hero-panel" aria-hidden="true">
@@ -55,13 +55,19 @@ export default function Home() {
               <div className="project-grid">
                 {site.work.projects.map((project) => (
                   <article className="project-card" key={project.title}>
-                    <a className="project-link" href={project.href ?? "#work"}>
-                      <div className="project-art" style={project.image ? { backgroundImage: `url(${project.image})` } : undefined}>
-                        <span className="project-status">{project.status}</span>
-                        <span className="project-arrow" aria-hidden="true">↗</span>
+                    {project.link ? (
+                      <a className="project-link" href={project.link}>
+                        <div className="project-art" style={{ backgroundImage: `url(${project.image})` }}>
+                          <span className="project-arrow" aria-hidden="true">↗</span>
+                        </div>
+                        <div className="project-meta"><div><p className="project-label">{project.label}</p><h3>{project.title}</h3><p>{project.description}</p></div></div>
+                      </a>
+                    ) : (
+                      <div className="project-link">
+                        <div className="project-art" style={project.image ? { backgroundImage: `url(${project.image})` } : undefined} />
+                        <div className="project-meta"><div><p className="project-label">{project.label}</p><h3>{project.title}</h3><p>{project.description}</p></div></div>
                       </div>
-                      <div className="project-meta"><div><h3>{project.title}</h3><p>{project.description}</p></div><span>{project.category}</span></div>
-                    </a>
+                    )}
                   </article>
                 ))}
               </div>
@@ -127,7 +133,7 @@ export default function Home() {
 
       <footer className="site-footer"><a className="wordmark footer-wordmark" href="#home"><span className="wordmark-mark" aria-hidden="true">{site.mark}</span><span>{site.name}</span></a><span>{site.footer}</span><a href="#home">{site.backToTop} ↑</a></footer>
       <nav className="mobile-nav" aria-label="Mobile navigation">
-        {site.navigation.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
+        {site.navigation.map((item) => <a className={item.href === "#contact" ? "mobile-contact" : undefined} key={item.href} href={item.href}>{item.label}</a>)}
       </nav>
     </>
   );
